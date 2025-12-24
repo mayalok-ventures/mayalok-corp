@@ -76,8 +76,13 @@ export default function Header() {
 
                         {/* Mobile menu button */}
                         <button 
-                            className="md:hidden text-gray-muted hover:text-platinum p-2"
-                            onClick={toggleMenu}
+                            type="button"
+                            className="md:hidden text-gray-muted hover:text-platinum p-2 z-50"
+                            onClick={(e) => {
+                                e.preventDefault()
+                                e.stopPropagation()
+                                toggleMenu()
+                            }}
                             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
                             aria-expanded={isMenuOpen}
                         >
@@ -92,7 +97,7 @@ export default function Header() {
                     </div>
 
                     {/* Mobile Navigation Menu */}
-                    <AnimatePresence>
+                    <AnimatePresence mode="wait">
                         {isMenuOpen && (
                             <motion.div
                                 initial={{ opacity: 0, height: 0 }}

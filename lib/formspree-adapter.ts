@@ -44,25 +44,35 @@ export async function submitToFormspree(
             body: JSON.stringify(sanitizedData),
         })
 
-        const result = await response.json()
-
         if (response.ok) {
             return {
                 success: true,
                 message: 'Thank you for your submission. We will respond promptly.',
             }
         } else {
-            return {
-                success: false,
-                message: 'Submission failed. Please try again.',
-                errors: result.errors,
+            let errorMessage = 'Submission failed. Please try again.'
+            try {
+                const result = await response.json()
+                if (result.error) {
+                    errorMessage = result.error
+                }
+                return {
+                    success: false,
+                    message: errorMessage,
+                    errors: result.errors,
+                }
+            } catch {
+                return {
+                    success: false,
+                    message: errorMessage,
+                }
             }
         }
     } catch (error) {
         console.error('Form submission error:', error)
         return {
             success: false,
-            message: 'Network error. Please check your connection.',
+            message: 'Network error. Please check your connection and try again.',
         }
     }
 }
