@@ -24,7 +24,7 @@ export const VENTURES = [
         tagline: 'Next-Gen Talent Acquisition',
         description: 'Re-engineering how elite talent is identified, verified, and deployed at scale.',
         color: 'blue',
-        url: 'https://pramaan.io',
+        url: 'https://pramaanx.com',
     },
     {
         id: 'riskfortress',
@@ -32,7 +32,7 @@ export const VENTURES = [
         tagline: 'Elite Risk Management & Security',
         description: 'Protecting high-value assets, intelligence, and enterprises from modern threats.',
         color: 'red',
-        url: 'https://riskfortress.io',
+        url: 'https://riskfortress.com',
     },
     {
         id: 'mayavi',
@@ -67,6 +67,6 @@ export const ANIMATION_DELAYS = {
 } as const
 
 export const FORMPREE_CONFIG = {
-    contactFormId: process.env.NEXT_PUBLIC_FORMPREE_CONTACT_ID || 'YOUR_FORMSPREE_ID',
-    pitchFormId: process.env.NEXT_PUBLIC_FORMPREE_PITCH_ID || 'YOUR_FORMSPREE_PITCH_ID',
+    contactFormId: process.env.NEXT_PUBLIC_FORMPREE_CONTACT_ID || 'mqezeowr',
+    pitchFormId: process.env.NEXT_PUBLIC_FORMPREE_PITCH_ID || 'mqezeowr',
 } as const
