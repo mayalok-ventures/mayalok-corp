@@ -106,10 +106,90 @@ export default function AboutPage() {
                         </div>
                     </motion.section>
 
+                    {/* The Mayalok Advantage */}
+                    <motion.section
+                        variants={fadeUpVariant}
+                        custom={3}
+                        className="mb-24"
+                    >
+                        <div className="glass-dark p-12 relative">
+                            <div className="absolute top-0 left-0 w-8 h-px bg-gold-accent" />
+                            <div className="absolute top-0 left-0 h-8 w-px bg-gold-accent" />
+                            <div className="absolute bottom-0 right-0 w-8 h-px bg-gold-accent" />
+                            <div className="absolute bottom-0 right-0 h-8 w-px bg-gold-accent" />
+
+                            <h2 className="text-3xl font-bold text-gold-accent mb-4">
+                                The Mayalok Advantage
+                            </h2>
+                            <p className="text-xl text-platinum mb-8">The Ecosystem Effect</p>
+                            
+                            <p className="text-lg text-gray-muted leading-relaxed mb-8">
+                                Unlike traditional venture capital that offers passive investment, Mayalok Ventures operates as an integrated <span className="text-platinum font-medium">Venture Studio</span>.
+                            </p>
+
+                            <div className="space-y-6">
+                                <div className="border-l-2 border-gold-accent pl-6">
+                                    <h3 className="text-lg font-bold text-platinum mb-2">Shared Intelligence</h3>
+                                    <p className="text-gray-muted">
+                                        Data from Pramaan&apos;s talent markets informs Risk Fortress&apos;s operational audits.
+                                    </p>
+                                </div>
+                                <div className="border-l-2 border-gold-accent pl-6">
+                                    <h3 className="text-lg font-bold text-platinum mb-2">Resource Velocity</h3>
+                                    <p className="text-gray-muted">
+                                        Portfolio companies leverage shared resources—legal, branding (Mayavi), and tech—drastically lowering the &apos;Cost of Experimentation.&apos;
+                                    </p>
+                                </div>
+                                <div className="border-l-2 border-gold-accent pl-6">
+                                    <h3 className="text-lg font-bold text-platinum mb-2">Risk-Adjusted Alpha</h3>
+                                    <p className="text-gray-muted">
+                                        By controlling the execution layer, we de-risk early-stage ventures, ensuring higher survival rates compared to market averages.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.section>
+
+                    {/* Investment Thesis */}
+                    <motion.section
+                        variants={fadeUpVariant}
+                        custom={4}
+                        className="mb-24"
+                    >
+                        <div className="glass-dark p-12">
+                            <h2 className="text-3xl font-bold text-gold-accent mb-4">
+                                Thesis: The Digital Infrastructure of Tomorrow
+                            </h2>
+                            
+                            <p className="text-lg text-gray-muted leading-relaxed mb-8">
+                                We believe the next decade of wealth creation lies in the <span className="text-platinum font-medium">&apos;Boring Middle&apos;</span>—the infrastructure layers that enable the digital economy. We do not chase trends. We build the picks and shovels:
+                            </p>
+
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                                <div className="bg-carbon p-6 border border-graphite">
+                                    <h3 className="text-lg font-bold text-platinum mb-3">Trust Infrastructure</h3>
+                                    <p className="text-gold-accent font-mono text-sm">Pramaan, Risk Fortress</p>
+                                </div>
+                                <div className="bg-carbon p-6 border border-graphite">
+                                    <h3 className="text-lg font-bold text-platinum mb-3">Creator Economy Utilities</h3>
+                                    <p className="text-gold-accent font-mono text-sm">Deeplink, Mayavi</p>
+                                </div>
+                                <div className="bg-carbon p-6 border border-graphite">
+                                    <h3 className="text-lg font-bold text-platinum mb-3">Knowledge Systems</h3>
+                                    <p className="text-gold-accent font-mono text-sm">GuruMaya</p>
+                                </div>
+                            </div>
+
+                            <p className="text-lg text-platinum leading-relaxed border-l-4 border-gold-accent pl-6 py-2">
+                                Our focus is on high-margin, B2B scalable engines that generate cash flow, not just valuation paper gains.
+                            </p>
+                        </div>
+                    </motion.section>
+
                     {/* Closing */}
                     <motion.div
                         variants={fadeUpVariant}
-                        custom={3}
+                        custom={5}
                         className="text-center"
                     >
                         <p className="text-xl text-gray-muted max-w-2xl mx-auto mb-12">
