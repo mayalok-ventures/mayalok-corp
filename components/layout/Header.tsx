@@ -1,8 +1,10 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { NAVIGATION } from '@/lib/constants'
 import { slideInVariant } from '@/lib/animations'
 
@@ -12,6 +14,10 @@ import { slideInVariant } from '@/lib/animations'
  */
 export default function Header() {
     const pathname = usePathname()
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+    const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
+    const closeMenu = () => setIsMenuOpen(false)
 
     return (
         <motion.header
@@ -26,12 +32,22 @@ export default function Header() {
                         {/* Logo */}
                         <Link
                             href="/"
-                            className="text-xl font-semibold tracking-tight text-platinum hover:text-gold-accent transition-colors"
+                            className="flex items-center gap-2 text-xl font-semibold tracking-tight text-platinum hover:text-gold-accent transition-colors"
+                            onClick={closeMenu}
                         >
-                            Mayalok<span className="text-gold-accent font-light">Ventures</span>
+                            <Image
+                                src="/images/logo.png"
+                                alt="Mayalok Ventures"
+                                width={40}
+                                height={40}
+                                className="w-8 h-8 md:w-10 md:h-10"
+                            />
+                            <span className="hidden sm:inline">
+                                Mayalok<span className="text-gold-accent font-light">Ventures</span>
+                            </span>
                         </Link>
 
-                        {/* Navigation */}
+                        {/* Desktop Navigation */}
                         <ul className="hidden md:flex items-center space-x-8">
                             {NAVIGATION.map((item) => {
                                 const isActive = pathname === item.href
@@ -58,13 +74,55 @@ export default function Header() {
                             })}
                         </ul>
 
-                        {/* Mobile menu placeholder */}
-                        <button className="md:hidden text-gray-muted hover:text-platinum">
+                        {/* Mobile menu button */}
+                        <button 
+                            className="md:hidden text-gray-muted hover:text-platinum p-2"
+                            onClick={toggleMenu}
+                            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+                            aria-expanded={isMenuOpen}
+                        >
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                                {isMenuOpen ? (
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                ) : (
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                                )}
                             </svg>
                         </button>
                     </div>
+
+                    {/* Mobile Navigation Menu */}
+                    <AnimatePresence>
+                        {isMenuOpen && (
+                            <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: 'auto' }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.3 }}
+                                className="md:hidden overflow-hidden"
+                            >
+                                <ul className="flex flex-col space-y-2 pt-4 mt-4 border-t border-graphite">
+                                    {NAVIGATION.map((item) => {
+                                        const isActive = pathname === item.href
+                                        return (
+                                            <li key={item.name}>
+                                                <Link
+                                                    href={item.href}
+                                                    onClick={closeMenu}
+                                                    className={`block px-4 py-3 text-base font-medium rounded transition-colors ${isActive
+                                                            ? 'text-gold-accent bg-gold-accent/10'
+                                                            : 'text-gray-muted hover:text-platinum hover:bg-graphite/50'
+                                                        }`}
+                                                >
+                                                    {item.name}
+                                                </Link>
+                                            </li>
+                                        )
+                                    })}
+                                </ul>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </nav>
             </div>
         </motion.header>

@@ -24,6 +24,7 @@ export const VENTURES = [
         tagline: 'Next-Gen Talent Acquisition',
         description: 'Re-engineering how elite talent is identified, verified, and deployed at scale.',
         color: 'blue',
+        url: 'https://pramaan.io',
     },
     {
         id: 'riskfortress',
@@ -31,6 +32,7 @@ export const VENTURES = [
         tagline: 'Elite Risk Management & Security',
         description: 'Protecting high-value assets, intelligence, and enterprises from modern threats.',
         color: 'red',
+        url: 'https://riskfortress.io',
     },
     {
         id: 'mayavi',
@@ -38,6 +40,7 @@ export const VENTURES = [
         tagline: 'Visuals Beyond Imagination',
         description: 'Cinematic branding, identity systems, and digital storytelling for premium brands.',
         color: 'purple',
+        url: 'https://mayavistudio.in',
     },
     {
         id: 'deeplink',
@@ -45,6 +48,7 @@ export const VENTURES = [
         tagline: 'Monetizing Influence',
         description: 'Transforming creators into scalable, revenue-driven digital assets.',
         color: 'green',
+        url: 'https://deeplinkcreators.com',
     },
     {
         id: 'gurumaya',
@@ -52,6 +56,7 @@ export const VENTURES = [
         tagline: 'Wisdom for the Modern Era',
         description: 'A digital knowledge ecosystem blending ancient insight with modern execution.',
         color: 'amber',
+        url: 'https://gurumaya.in',
     },
 ] as const
 

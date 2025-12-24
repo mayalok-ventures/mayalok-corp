@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { VENTURES } from '@/lib/constants'
 import { fadeUpVariant, cardHoverVariant, staggerContainerVariant } from '@/lib/animations'
@@ -40,34 +41,43 @@ export default function VenturesGrid() {
                                 custom={index}
                                 whileHover="hover"
                                 initial="initial"
-                                className={`glass-dark p-8 transition-all duration-300 ${index === 0 ? 'lg:col-span-2' : ''
-                                    }`}
+                                className={`${index === 0 ? 'lg:col-span-2' : ''}`}
                             >
-                                <motion.div variants={cardHoverVariant}>
-                                    {/* Venture Header */}
-                                    <div className="mb-6">
-                                        <h3 className="text-2xl font-bold text-platinum mb-2">
-                                            {venture.name}
-                                        </h3>
-                                        <p className="text-gold-accent font-medium">
-                                            {venture.tagline}
+                                <Link
+                                    href={venture.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="block glass-dark p-8 transition-all duration-300 h-full hover:border-gold-accent/30 cursor-pointer"
+                                >
+                                    <motion.div variants={cardHoverVariant}>
+                                        {/* Venture Header */}
+                                        <div className="mb-6">
+                                            <h3 className="text-2xl font-bold text-platinum mb-2">
+                                                {venture.name}
+                                            </h3>
+                                            <p className="text-gold-accent font-medium">
+                                                {venture.tagline}
+                                            </p>
+                                        </div>
+
+                                        {/* Description */}
+                                        <p className="text-gray-muted leading-relaxed mb-8">
+                                            {venture.description}
                                         </p>
-                                    </div>
 
-                                    {/* Description */}
-                                    <p className="text-gray-muted leading-relaxed mb-8">
-                                        {venture.description}
-                                    </p>
-
-                                    {/* Decorative Element */}
-                                    <div className="flex items-center justify-between">
-                                        <div className="w-12 h-px bg-graphite" />
-                                        <span className="text-xs font-mono text-gray-muted uppercase tracking-wider">
-                                            Strategic Holding
-                                        </span>
-                                        <div className="w-12 h-px bg-graphite" />
-                                    </div>
-                                </motion.div>
+                                        {/* Decorative Element with Arrow */}
+                                        <div className="flex items-center justify-between">
+                                            <div className="w-12 h-px bg-graphite" />
+                                            <span className="text-xs font-mono text-gray-muted uppercase tracking-wider flex items-center gap-2">
+                                                Visit Site
+                                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                                </svg>
+                                            </span>
+                                            <div className="w-12 h-px bg-graphite" />
+                                        </div>
+                                    </motion.div>
+                                </Link>
                             </motion.div>
                         ))}
                     </div>
