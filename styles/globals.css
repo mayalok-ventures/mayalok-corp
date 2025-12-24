@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap');
+@import 'lenis/dist/lenis.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --void: #030303;
+    --carbon: #0B0F14;
+    --graphite: #1C1F26;
+    --platinum: #E6E6E6;
+    --platinum-soft: #F5F5F5;
+    --gray-muted: #9CA3AF;
+    --gold-accent: #C7A14A;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    @apply bg-void text-platinum;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-carbon;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-graphite;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-gold-accent/50;
+}
+
+/* Selection */
+::selection {
+    @apply bg-gold-accent/30 text-platinum;
+}
+
+/* Glassmorphism Base */
+.glass-dark {
+    @apply bg-glass-dark backdrop-blur-glass border border-graphite;
+    box-shadow:
+        0 4px 24px -1px rgba(0, 0, 0, 0.2),
+        0 1px 2px 0 rgba(199, 161, 74, 0.05),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Gold Border Glow */
+.gold-glow {
+    box-shadow:
+        0 0 0 1px rgba(199, 161, 74, 0.1),
+        0 0 40px rgba(199, 161, 74, 0.05);
+    transition: all 0.3s ease-out-expo;
+}
+
+.gold-glow:hover {
+    box-shadow:
+        0 0 0 1px rgba(199, 161, 74, 0.2),
+        0 0 60px rgba(199, 161, 74, 0.1);
+}
+
+/* Framer Motion Easing */
+.ease-out-expo {
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hide Scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide Scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
